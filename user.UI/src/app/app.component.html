@@ -1,0 +1,25 @@
+<button (click)="initNewHero()">Create New User</button>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Place</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.place }}</td>
+      <td><button (click)="editHero(user)">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<app-edit-hero
+  [user]="userToEdit"
+  (heroesUpdated)="updateHeroList($event)"
+></app-edit-hero>
